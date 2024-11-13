@@ -1,0 +1,378 @@
+/* Base body styling */
+body {
+  font-family: 'Kaushan Script', cursive;
+  margin: 0;
+  padding: 0;
+  background: url('img.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    background: url('img2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+/* Loader */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, #E3E2DE, #878787);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.loader-content {
+  perspective: 1000px;
+}
+
+/* Menu Button Styling */
+.menu-button {
+  position: absolute;
+  z-index: 9999;
+  top: 30px;
+  right: 30px;
+  width: 30px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  transition: transform 0.3s;
+  gap: 5px;
+}
+
+.menu-button .bar {
+  width: 100%;
+  height: 3px;
+  background-color: #4f4f4f;
+  transition: all 0.3s;
+}
+
+/* When active, rotate and transform the bars to create a cross */
+.menu-button.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-button.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-button.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+/* Skills List (Initially hidden) */
+#skills-list {
+  display: none;
+  position: fixed;
+  top: 50px;
+  right: 10px;
+  max-width: 150px;
+  max-height: 300px;
+  overflow-y: auto;
+  background-color: rgb(195, 195, 195);
+  padding: 15px;
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+/* Skills List Header */
+#skills-list h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #007bff;
+}
+
+/* Skills List Items */
+#skills-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#skills-list ul li {
+  padding: 5px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.ikigai-text {
+  display: flex;
+  justify-content: space-between;
+  transform-style: preserve-3d;
+  animation: rotateIkigai 3s infinite;
+  font-size: 4rem;
+}
+
+.letter {
+  /* font-size: 3rem; */
+  font-weight: bold;
+  color: #EC3E3D;
+  -webkit-text-stroke: #26303a 2px;
+  text-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  transform: rotateY(0deg);
+  animation: letterSwing 1.5s ease-in-out infinite alternate;
+}
+
+.letter:nth-child(odd) {
+  animation-delay: 0.1s;
+}
+
+.letter:nth-child(even) {
+  animation-delay: 0.2s;
+}
+
+/* Responsive scaling for smaller screens */
+@media (max-width: 768px) {
+  .letter {
+    font-size: 2rem;
+  }
+}
+
+/* Animation for the rotating Ikigai text */
+@keyframes rotateIkigai {
+  0% {
+    transform: rotateY(0deg) translateZ(0);
+  }
+
+  50% {
+    transform: rotateY(180deg) translateZ(50px);
+  }
+
+  100% {
+    transform: rotateY(360deg) translateZ(0);
+  }
+}
+
+/* Letter swing animation for 3D depth */
+@keyframes letterSwing {
+  0% {
+    transform: rotateY(0deg) translateZ(0px);
+  }
+
+  100% {
+    transform: rotateY(30deg) translateZ(50px);
+  }
+}
+
+/* Hide the main content initially */
+#app-content {
+  display: none;
+  transition: all ease 2s;
+}
+
+/* Circle container and individual circle styles */
+.container {
+  position: relative;
+  width: 90vw;
+  /* Use viewport width */
+  height: 90vw;
+  /* Maintain square aspect ratio */
+  max-width: 600px;
+  max-height: 600px;
+  perspective: 1000px;
+  margin-top: 20px;
+}
+
+.circle {
+  position: absolute;
+  width: 40%;
+  /* Adjust width to be responsive */
+  height: 40%;
+  border-radius: 50%;
+  background-color: rgba(0, 150, 255, 0.6);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+/* Hover and interaction styles */
+.circle:hover {
+  transform: scale(1.1) rotateY(20deg) rotateX(20deg);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Positioning the circles */
+.what-you-love {
+  background-color: rgba(255, 158, 179, 0.6);
+  top: 10%;
+  left: 10%;
+}
+
+.what-the-world-needs {
+  background-color: rgba(161, 217, 255, 0.6);
+  top: 10%;
+  right: 10%;
+}
+
+.what-you-are-good-at {
+  background-color: rgba(255, 224, 145, 0.6);
+  bottom: 15%;
+  left: 10%;
+}
+
+.what-you-can-be-paid-for {
+  background-color: rgba(132, 255, 136, 0.6);
+  bottom: 15%;
+  right: 10%;
+}
+
+/* Center Ikigai button */
+.center-ikigai {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#ikigaiButton {
+  width: 80px;
+  height: 80px;
+  background-color: #ef554d;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transition: all ease 0.5s;
+}
+
+#ikigaiButton:hover {
+  background-color: rgb(255, 138, 95);
+  transform: scale(1.1);
+}
+
+/* Labels for circles */
+.label {
+  color: rgb(76, 76, 76);
+  font-weight: bold;
+  font-size: 10x;
+}
+
+/* Headline styling */
+.headline {
+  position: relative;
+  top: 10px;
+  color: #E53C38;
+  font-size: 1.5rem;
+}
+
+/* Adjust font sizes for smaller screens */
+@media (max-width: 768px) {
+  .headline {
+    font-size: 1.2rem;
+  }
+}
+
+/* Skill Input Form */
+#skill-input {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: white;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  display: none;
+  width: 250px;
+  /* Adjusted for smaller screens */
+}
+
+.cross {
+  float: right;
+  border: 0px;
+  background-color: transparent;
+  filter: contrast(0.5);
+}
+
+
+@media (max-width: 768px) {
+  .menu-button {
+    font-size: 20px;
+    padding: 8px 12px;
+  }
+
+  #skills-list {
+    width: 200px;
+  }
+}
+
+
+/* Responsive handling */
+@media (max-width: 768px) {
+  .container {
+    width: 80vw;
+    height: 80vw;
+  }
+
+  #ikigaiButton {
+    width: 60px;
+    height: 60px;
+  }
+
+  #skill-input,
+  #skills-list {
+    width: 200px;
+  }
+}
+
+/* Result message */
+.ikigai-result {
+  position: absolute;
+  top: 20%;
+  transform: translate(-50%, -50%) scale(0);
+  background-color: #e12e28e4;
+  color: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.5s ease-in-out;
+  z-index: 1000;
+}
+
+.ikigai-result h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.ikigai-result p {
+  margin-top: 10px;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .ikigai-result h2 {
+    font-size: 1.2rem;
+  }
+
+  .ikigai-result p {
+    font-size: 1rem;
+  }
+}
+
+/* Highlighted circle */
+.highlighted {
+  background-color: rgba(0, 255, 150, 0.6);
+  box-shadow: 0 15px 30px rgba(0, 255, 150, 0.3);
+  transform: scale(1.2) rotateY(20deg) rotateX(20deg);
+}
+
+#sectionTitle{
+  font-size: 1rem;
+}

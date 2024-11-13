@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="logo.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <title>Ikigai Technique</title>
+</head>
+<body>
+    <!-- Creative Loader -->
+    <div id="loader">
+        <div class="loader-content">
+            <div class="ikigai-text">
+                <span class="letter">I</span>
+                <span class="letter">K</span>
+                <span class="letter">I</span>
+                <span class="letter">G</span>
+                <span class="letter">A</span>
+                <span class="letter">I</span>
+            </div>
+        </div>
+    </div>
+    <div id="menuButton" class="menu-button" onclick="this.classList.toggle('active')">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+      
+
+    <!-- Main Content -->
+    <h1 class="headline">Find purpose of your life</h1>
+
+    <div class="container" id="app-content" style="display: none;">
+
+        <div class="circle what-you-love" data-title="What You Love">
+            <span class="label"><span style="font-size: 1.5rem;">1. </span>What You Love 🧡</span>
+        </div>
+        <div class="circle what-the-world-needs" data-title="What the World Needs">
+            <span class="label"><span style="font-size: 1.5rem;">3. </span>What the World Needs 🌍</span>
+        </div>
+        <div class="circle what-you-are-good-at" data-title="What You Are Good At">
+            <span class="label"><span style="font-size: 1.5rem;">2. </span>What You Are Good At 👍</span>
+        </div>
+        <div class="circle what-you-can-be-paid-for" data-title="What You Can Be Paid For">
+            <span class="label"><span style="font-size: 1.5rem;">4. </span>What You Can Be Paid For 💸</span>
+        </div>
+
+        <div class="center-ikigai">
+            <button id="ikigaiButton">Find Ikigai</button>
+        </div>
+        
+    </div>
+
+    <!-- Skill Input and List -->
+    <div id="skill-input">
+        <button class="cross">❌</button>
+        <h3>Add Skills for: <span id="sectionTitle"></span></h3>
+        <input type="text" id="skillField" placeholder="Enter your skill">
+        <button onclick="addSkill()">Add Skill</button>
+    </div>
+    <div id="skills-list"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
